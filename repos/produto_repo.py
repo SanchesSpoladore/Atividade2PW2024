@@ -19,7 +19,8 @@ class ProdutoRepo:
                 produto.nome,
                 produto.descricao,
                 produto.preco,
-                produto.estoque))
+                produto.estoque,
+                produto.categoria_id))
             if cursor.rowcount == 0:
                 return None
             else:
@@ -35,6 +36,7 @@ class ProdutoRepo:
                 produto.descricao,
                 produto.preco,
                 produto.estoque,
+                produto.categoria_id,
                 produto.id))
             if cursor.rowcount > 0:
                 return True
@@ -63,7 +65,8 @@ class ProdutoRepo:
                     nome=linha["nome"],
                     descricao=linha["descricao"],
                     preco=linha["preco"],
-                    estoque=linha["estoque"])
+                    estoque=linha["estoque"],
+                    categoria_id=linha["categoria_id"])
             else:
                 return None
 
@@ -90,6 +93,9 @@ class ProdutoRepo:
             count = cursor.fetchone()["count"]
             if count > 0:
                 return
+            
+            categoria_id_padrao = 1
+            
             produtos_iniciais = [
                 ("Banana", "Banana fresca, colhida na época certa, doce e ideal para vitaminas e lanches.", 1.99, 100),
                 ("Abacaxi", "Abacaxi maduro, suculento e doce, perfeito para sobremesas ou sucos refrescantes.", 3.49, 50),
@@ -102,8 +108,9 @@ class ProdutoRepo:
                 ("Abóbora", "Abóbora moranga de cor viva, perfeita para sopas, purês e receitas tradicionais.", 1.80, 90),
                 ("Abobrinha", "Abobrinha italiana fresca e saborosa, ótima para refogados, grelhados e saladas.", 2.20, 60),
                 ("Repolho", "Repolho verde crocante e versátil, ideal para saladas, cozidos ou refogados.", 1.10, 120),
-                ("Alho", "Alho fresco e aromático, essencial para temperar e realçar o sabor dos pratos.", 10.00, 20)]
-            for nome, descricao, preco, estoque in produtos_iniciais:
-                cursor.execute(SQL_INSERIR, (nome, descricao, preco, estoque))
-            db.commit()
+                ("Alho", "Alho fresco e aromático, essencial para temperar e realçar o sabor dos pratos.", 10.00, 20)
+            ]
 
+            for nome, descricao, preco, estoque in produtos_iniciais:
+                cursor.execute(SQL_INSERIR, (nome, descricao, preco, estoque, categoria_id_padrao)) 
+            db.commit()

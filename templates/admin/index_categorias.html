@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% set admin_active = "active" %}
+{% block titulo %}Administração de Produtos{% endblock %}
+{% block conteudo %}
+<div class="d-flex justify-content-between align-items-center">
+    <h1>Administração de Produtos</h1>
+    <a href="/admin/inserir_categoria" class="btn btn-primary">Nova Categoria</a>
+</div>
+<hr>
+<table class="table table-striped table-hover table-sm table-produtos">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for c in categorias %}
+        <tr>
+            <td>{{c.nome}}</td>
+            <td>
+                <a href="/admin/alterar_categoria/{{c.id}}" class="btn btn-outline-success">
+                    <i class="bi bi-pen"></i>
+                </a>
+                <a href="/admin/excluir_categoria/{{c.id}}" class="btn btn-outline-danger">
+                    <i class="bi bi-trash"></i>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

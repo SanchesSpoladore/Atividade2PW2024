@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block titulo %}Alterar Categoria{% endblock %}
+
+{% block conteudo %}
+<h1>Alterar Categoria</h1>
+<hr>
+<form method="post" class="row" action="/admin/alterar_categoria/{{ categoria.id }}">
+    <input type="hidden" name="id" value="{{ categoria.id }}">
+    <div class="form-group col-6">
+        <label for="nome">Nome da Categoria:</label>
+        <input type="text" class="form-control" id="nome" name="nome" value="{{ categoria.nome }}" required>
+    </div>
+    <div class="col-6">
+        <a href="/admin_categoria" class="btn btn-secondary">Cancelar</a>
+        <button type="submit" class="btn btn-success">Alterar</button>
+    </div>
+</form>
+{% endblock %}

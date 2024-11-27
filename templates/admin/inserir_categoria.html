@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block titulo %}Inserção de Categoria{% endblock %}
+{% block conteudo %}
+<h1>Inserção de Categoria</h1>
+<hr>
+<form method="post" class="row">
+    <div class="col-12">
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" name="nome" id="nome" placeholder=" " value="{{categoria.nome or ''}}"/>
+            <label for="nome">Nome</label>
+        </div>
+    </div>
+    <div class="col-6">
+        <a href="/admin" class="btn btn-secondary">Cancelar</a>
+        <button type="submit" class="btn btn-primary">
+            Salvar
+        </button>
+    </div>
+</form>
+{% endblock %}

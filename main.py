@@ -2,11 +2,13 @@ from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from starlette.middleware.sessions import SessionMiddleware
 from repos.produto_repo import ProdutoRepo
+from repos.categoria_repo import CategoriaRepo
 from repos.usuario_repo import UsuarioRepo
 from routes.admin_router import router as admin_router
 from routes.public_router import router as public_router
 
 ProdutoRepo.criar_tabela()
+CategoriaRepo.criar_tabela()
 ProdutoRepo.inserir_produtos_iniciais()
 UsuarioRepo.criar_tabela()
 app = FastAPI()

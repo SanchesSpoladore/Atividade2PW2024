@@ -24,7 +24,8 @@
                 <div class="d-flex justify-content-end align-items-center">
                     <a class="nav-item nav-link {{index_active}}" href="/">Principal</a>
                     {% if autenticado: %}
-                    <a class="nav-item nav-link {{admin_active}}" href="/admin">Administrar</a>
+                    <a class="nav-item nav-link {{admin_produto_active}}" href="/admin_produto">Administrar Produtos</a>
+                    <a class="nav-item nav-link {{admin_categoria_active}}" href="/admin_categoria">Administrar Categorias</a>
                     <a class="nav-item nav-link" href="/sair">Sair</a>
                     {% else: %}
                     <a class="nav-item nav-link {{entrar_active}}" href="/entrar">Entrar</a>

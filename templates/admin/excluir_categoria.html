@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block titulo %}Exclusão de Categoria{% endblock %}
+{% block conteudo %}
+<h1>Exclusão de Categoria</h1>
+<hr>
+<form method="post" class="row" action="/admin/excluir_categoria">
+    <input type="hidden" name="id" value="{{ categoria.id }}">
+    <p class="lead">Deseja realmente excluir a categoria <b>{{ categoria.nome }}</b>?</p>
+    <div class="col-6">
+        <a href="/admin_categoria" class="btn btn-secondary">Não</a>
+        <button type="submit" class="btn btn-danger">
+            Sim
+        </button>
+    </div>
+</form>
+{% endblock %}

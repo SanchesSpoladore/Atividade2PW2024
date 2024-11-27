@@ -14,6 +14,7 @@
             <th>Nome</th>
             <th>Estoque</th>
             <th>Preço</th>
+            <th>Categoria</th>
             <th>Ações</th>
         </tr>
     </thead>
@@ -26,6 +27,7 @@
             <td>{{p.nome}}</td>
             <td>{{p.estoque}}</td>
             <td>{{p.preco}}</td>
+            <td>{{ p.categoria }}</td>
             <td>
                 <a href="/admin/alterar_produto/{{p.id}}" class="btn btn-outline-success">
                     <i class="bi bi-pen"></i>
